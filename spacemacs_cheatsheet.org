@@ -12,3 +12,14 @@
     run shell command
 *** ;
     Comment the lines (can use vim movement commands. e.g. <SPC>;5j will command 5 lines. Works in visual mode as well
+*** ?
+    Show key bindings
+*** a d
+    Open dired
+*** a o t
+    open =todo= list
+***
+* Org general
+** Add file to todo file list -> <C-c>[
+** Remove file from the todo file list -> <C-c>]
+** <SPC> a o t -> open todo list
