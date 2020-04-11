@@ -1,0 +1,9 @@
+#+TITLE: Spacemacs cheatsheet
+* Spacemacs general
+** <SPC>
+*** <SPC>
+    Open command prompt for emacs (similar to M-x)
+*** <TAB>
+    Switch to last buffer
+*** /
+    Search in project using "ag" or "grep"

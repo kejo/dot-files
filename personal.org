@@ -1,0 +1,35 @@
+* Monthly Bills
+** Rent [1/2]
+*** DONE Apr-2020 - 29000                                              :rent:
+    CLOSED: [2020-04-06 Mon 09:55]
+*** TODO Rent for May 2020 - 29000
+    DEADLINE: <2020-05-10 Sun>
+** Electricity [1/2]
+*** DONE Mar-2020 - Rs 1808
+    CLOSED: [2020-04-11 Sat 20:28]
+    Through HDFC NetBanking
+    Transaction ID: SHDF8701087472
+    Transaction Ref No: 28781226
+*** TODO Elect bill - Apr-2020
+** Ketan Mobile [1/2]
+*** DONE Mar-2020 - 470.82                                             :rent:
+    CLOSED: [2020-04-06 Mon 10:14]
+*** TODO Apr-2020
+** Manjiri Mobile [1/2]
+*** DONE Mar-2020 - 602.58
+    CLOSED: [2020-04-06 Mon 10:14]
+*** TODO Apr-2020
+** Warje Maintenance [1/2]
+*** DONE Jan-2020 to Jun 2020
+    CLOSED: [2020-04-06 Mon 10:15]
+*** TODO Jul-2020 to Dec-2020
+** Blr Maintenance [1/2]
+*** DONE Apr-2020 to Jun-2020  Rs 14543
+    CLOSED: [2020-04-11 Sat 20:25]
+    Done through GPay
+*** TODO Jul-2020 to Sep-2020
+** Airtel Broadband [0/0]
+*** 
+** Ojas Karate [0/0]
+** Car insurance - HDFC Ergo
+*** TODO 2020 -
