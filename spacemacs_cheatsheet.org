@@ -5,5 +5,10 @@
     Open command prompt for emacs (similar to M-x)
 *** <TAB>
     Switch to last buffer
-*** /
+*** * & /
     Search in project using "ag" or "grep"
+    On windows, need to install ag from [[https://github.com/k-takata/the_silver_searcher-win32/releases][ag install link]]
+*** !
+    run shell command
+*** ;
+    Comment the lines (can use vim movement commands. e.g. <SPC>;5j will command 5 lines. Works in visual mode as well
