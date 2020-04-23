@@ -28,8 +28,10 @@
     CLOSED: [2020-04-11 Sat 20:25]
     Done through GPay
 *** TODO Jul-2020 to Sep-2020
-** Airtel Broadband [0/0]
-*** 
+** Airtel Broadband [1/1]
+*** DONE Apr-2020 - Broadband 352 - Paid
+    CLOSED: [2020-04-23 Thu 18:56]
+    Transaction ID: 200423341282
 ** Ojas Karate [0/0]
 ** Car insurance - HDFC Ergo
 *** TODO 2020 -
