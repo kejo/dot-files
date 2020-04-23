@@ -18,7 +18,7 @@
     Open dired
 *** a o t
     open =todo= list
-***
+*** s b -> search in all buffers
 * Org general
 ** Add file to todo file list -> <C-c>[
 ** Remove file from the todo file list -> <C-c>]

@@ -311,6 +311,11 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   )
 
+ ;; (find-file "~/.cpacemacs.d/personal.org")
+;; (find-file "~/.spacemacs.d/spacemacs_cheatsheet.org")
+
+ (desktop-save-mode 1)
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
