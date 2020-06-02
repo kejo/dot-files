@@ -18,6 +18,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'preservim/nerdtree'
+Plugin 'chrisbra/csv.vim'
+Plugin 'preservim/nerdcommenter'
 
 " All plugins must be added before this
 call vundle#end()
