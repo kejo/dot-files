@@ -1,0 +1,3 @@
+[submodule "vim/submoudles/PaperColor.vim"]
+	path = vim/submoudles/PaperColor.vim
+	url = git@github.com:vim-scripts/PaperColor.vim.git

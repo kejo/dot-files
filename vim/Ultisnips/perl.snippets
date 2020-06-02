@@ -1,0 +1,39 @@
+snippet ife "Conditional if..else (ife)"
+if ($1) {
+	${2:# body...}
+} else {
+	${3:# else...}
+}
+
+endsnippet
+
+snippet ifee "Conditional if..elsif..else (ifee)"
+if ($1) {
+	${2:# body...}
+} elsif ($3) {
+	${4:# elsif...}
+} else {
+	${5:# else...}
+}
+
+endsnippet
+
+snippet sub "Function (sub)"
+sub ${1:function_name}{
+	${2:# body....}
+}
+
+endsnippet
+
+snippet fore "foreach"
+foreach ${1:my $${2:x}} (@${3:array}){
+	${4:# body...}
+}
+
+endsnippet
+
+snippet slurp "slurp"
+my $${1:var} = do { local $/ = undef; open my $fh, '<', ${2:$file}; <$fh> };
+
+endsnippet
+
