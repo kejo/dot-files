@@ -12,6 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'colepeters/spacemacs-theme.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'SirVer/ultisnips'
@@ -20,6 +21,7 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'preservim/nerdtree'
 Plugin 'chrisbra/csv.vim'
 Plugin 'preservim/nerdcommenter'
+Plugin 'jceb/vim-orgmode'
 
 " All plugins must be added before this
 call vundle#end()
@@ -80,8 +82,14 @@ vnoremap <s-tab> <gv
 set t_Co=256
 set background=dark
 
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+colorscheme spacemacs-theme
+
 color PaperColor
-set number
+set relativenumber
 set ruler
 set scrolloff=1
 set sidescrolloff=5
@@ -275,7 +283,7 @@ au BufEnter *.sh nnoremap <leader>r :term sh %<CR>
 
 
 " Source the vimrc
-nnoremap <leader>fer :so %<CR>
+nnoremap <leader>fer :so ~/.vimrc<CR>
 nnoremap <leader>fed :e ~/.vimrc <CR>
 
 " NERD Tree
