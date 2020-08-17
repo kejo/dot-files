@@ -9,11 +9,14 @@ call vundle#begin()
 
 " Let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
-
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'colepeters/spacemacs-theme.vim'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+Plugin 'alvan/vim-closetag'
 Plugin 'tpope/vim-surround'
 Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
@@ -22,6 +25,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'chrisbra/csv.vim'
 Plugin 'preservim/nerdcommenter'
 Plugin 'jceb/vim-orgmode'
+Plugin 'easymotion/vim-easymotion'
 
 " All plugins must be added before this
 call vundle#end()
@@ -304,3 +308,22 @@ inoremap kj <ESC>
 
 inoremap <leader>w <ESC>:w<CR>
 nnoremap <leader>w <ESC>:w<CR>
+
+
+" Easy Motion
+map <leader><leader>. <Plug>(easymotion-repeat)
+map <leader><leader>f <Plug>(easymotion-overwin-f)
+map <leader><leader>j <Plug>(easymotion-overwin-line)
+map <leader><leader>k <Plug>(easymotion-overwin-line)
+map <leader><leader>w <Plug>(easymotion-overwin-w)
+
+
+" Git Gutter
+highlight GitGutterAdd guifg=#009900 ctermfg=Green
+highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
+highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
+nmap ) <Plug>(GitGutterNextHunk)
+nmap ( <Plug>(GitGutterPrevHunk)
+let g:gitgutter_enabled = 1
+let g:gitgutter_map_keys = 0
+let g:gitgutter_highlight_linenrs = 1
