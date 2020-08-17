@@ -327,3 +327,9 @@ nmap ( <Plug>(GitGutterPrevHunk)
 let g:gitgutter_enabled = 1
 let g:gitgutter_map_keys = 0
 let g:gitgutter_highlight_linenrs = 1
+
+
+" Vim-airline
+  let g:airline#extensions#wordcount#enabled = 1
+  let g:airline#extensions#hunks#non_zero_only = 1
+  let g:airline_theme = 'codedark'
