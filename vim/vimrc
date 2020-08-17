@@ -182,33 +182,33 @@ au BufNewFile,BufRead *.jil setf autosys
 
 
 "{{{ Status Line
-set statusline=
-set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
-set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
-set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ REPLACE\ ':''}
-set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
-set statusline+=\ %n\                   " buffer number
-set statusline+=%#Visual#               " color
-set statusline+=%{&paste?'\ PASTE\ ':''}
-set statusline+=%{&spell?'\ SPELL\ ':''}
-set statusline+=%#CursorIM#             " color
-set statusline+=%R                     "Read only flag
-set statusline+=%M                     "Modified [+] flag
-set statusline+=%#Cursor#
-set statusline+=%#CursorIM#
-set statusline+=\ %t\                  " Short file name
-set statusline+=%=                     " Right align
-set statusline+=%#Diffchange#
-set statusline+=%{FugitiveStatusline()}  "Fugitive status line
-set statusline+=%#CursorLine#
-set statusline+=\ %Y\                    "File type
-set statusline+=%#CursorIM#
-set statusline+=\ %3l:%-2c\            " line + column
-set statusline+=%#Cursor#
-set statusline+=\ %3p%%\               "percentage
+"set statusline=
+"set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+"set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
+"set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ REPLACE\ ':''}
+"set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+"set statusline+=\ %n\                   " buffer number
+"set statusline+=%#Visual#               " color
+"set statusline+=%{&paste?'\ PASTE\ ':''}
+"set statusline+=%{&spell?'\ SPELL\ ':''}
+"set statusline+=%#CursorIM#             " color
+"set statusline+=%R                     "Read only flag
+"set statusline+=%M                     "Modified [+] flag
+"set statusline+=%#Cursor#
+"set statusline+=%#CursorIM#
+"set statusline+=\ %t\                  " Short file name
+"set statusline+=%=                     " Right align
+"set statusline+=%#Diffchange#
+"set statusline+=%{FugitiveStatusline()}  "Fugitive status line
+"set statusline+=%#CursorLine#
+"set statusline+=\ %Y\                    "File type
+"set statusline+=%#CursorIM#
+"set statusline+=\ %3l:%-2c\            " line + column
+"set statusline+=%#Cursor#
+"set statusline+=\ %3p%%\               "percentage
 
-hi StatusLine ctermfg=15 guifg=#ffffff ctermbg=239 guibg=#4e4e4e cterm=bold gui=bold
-hi StatusLineNC ctermbg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a cterm=none gui=none
+"hi StatusLine ctermfg=15 guifg=#ffffff ctermbg=239 guibg=#4e4e4e cterm=bold gui=bold
+"hi StatusLineNC ctermbg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a cterm=none gui=none
 
 set laststatus=2 " Always show the status line regardless of number of windows (splits)
 "}}}
