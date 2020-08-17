@@ -13,7 +13,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'colepeters/spacemacs-theme.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'alvan/vim-closetag'
@@ -89,8 +88,6 @@ set background=dark
 if (has("termguicolors"))
   set termguicolors
 endif
-
-colorscheme spacemacs-theme
 
 color PaperColor
 set relativenumber
@@ -332,4 +329,4 @@ let g:gitgutter_highlight_linenrs = 1
 " Vim-airline
   let g:airline#extensions#wordcount#enabled = 1
   let g:airline#extensions#hunks#non_zero_only = 1
-  let g:airline_theme = 'codedark'
+  let g:airline_theme = 'papercolor'
