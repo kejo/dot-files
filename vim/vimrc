@@ -24,9 +24,13 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'preservim/nerdcommenter'
 Plugin 'jceb/vim-orgmode'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'liuchengxu/vim-which-key'
 
 " All plugins must be added before this
 call vundle#end()
+
+set timeoutlen=500
+nnoremap <silent> <leader> :WhichKey ','<CR>
 
 filetype plugin on
 filetype indent on
@@ -59,7 +63,7 @@ set smarttab "Use shiftwidths at left margin, tabstops everywhere else
 
 set nrformats-=octal
 
-set autoindent 
+set autoindent
 set smartindent
 
 syntax enable
@@ -69,7 +73,7 @@ nnoremap <leader>sn :syntax sync minlines=10000<CR>
 
 "wrapping of lines
 set colorcolumn=100
-set textwidth=100
+set textwidth=0
 set wrap
 "when wrapping is used, use +++ to denote the break lines
 let &showbreak = '+++ '
@@ -341,8 +345,36 @@ nnoremap <silent> <S-tab> :bp<CR>
 nnoremap <leader>tn :set number!<CR>
 nnoremap <leader>tr :set relativenumber!<CR>
 nnoremap <leader>tp :set paste!<CR>
+nnoremap <leader>tw :set wrap!<CR>
 
 nnoremap <leader>fs <ESC>:w<CR>
 nnoremap <leader>bd <ESC>:bd<CR>
+nnoremap <leader>bD :bd!<CR>
+nnoremap <leader>qq :q!<CR>
 nnoremap <leader>sr <ESC>:%s//g<Left><Left>
 nnoremap <leader>fd <ESC>:diffthis<CR>
+
+" Window mappings
+nnoremap <leader>wm <ESC><C-w><C-o>
+nnoremap <leader>wo <ESC><C-w><C-o>
+nnoremap <leader>wl <ESC><C-w>l
+nnoremap <leader>wj <ESC><C-w>j
+nnoremap <leader>wk <ESC><C-w>k
+nnoremap <leader>wh <ESC><C-w>h
+nnoremap <leader>wt <ESC><C-w>t
+nnoremap <leader>ww <ESC><C-w>p
+nnoremap <leader>wH <ESC><C-w>H
+nnoremap <leader>wJ <ESC><C-w>J
+nnoremap <leader>wK <ESC><C-w>K
+nnoremap <leader>wL <ESC><C-w>L
+nnoremap <leader>ws <ESC><C-w>s
+nnoremap <leader>wv <ESC><C-w>v
+nnoremap <leader>wc <ESC>:q<CR>
+nnoremap <leader>wC <ESC>:q!<CR>
+nnoremap <leader>wn <ESC><C-W>n
+nnoremap <leader>wN <ESC>:vnew<CR>
+
+nnoremap + <C-W>+
+nnoremap - <C-W>-
+nnoremap > <C-W>>
+nnoremap < <C-W><
