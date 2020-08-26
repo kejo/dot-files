@@ -346,8 +346,10 @@ nnoremap <leader>tn :set number!<CR>
 nnoremap <leader>tr :set relativenumber!<CR>
 nnoremap <leader>tp :set paste!<CR>
 nnoremap <leader>tw :set wrap!<CR>
+nnoremap <leader>tc :set ignorecase!<CR>
 
 nnoremap <leader>fs <ESC>:w<CR>
+nnoremap <leader>fsq <ESC>:wq<CR>
 nnoremap <leader>bd <ESC>:bd<CR>
 nnoremap <leader>bD :bd!<CR>
 nnoremap <leader>qq :q!<CR>
