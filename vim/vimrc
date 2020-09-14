@@ -361,8 +361,8 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_upper = 1
 let g:EasyMotion_keys = 'ASDGHKLQWERTYUIOPZXCVBNMFJ'
 let g:EasyMotion_do_shade = 0
-map f <Plug>(easymotion-overwin-f)
-map t <Plug>(easymotion-bd-t)
+"map f <Plug>(easymotion-overwin-f)
+"map t <Plug>(easymotion-bd-t)
 
 
 " Git Gutter
@@ -400,6 +400,10 @@ nnoremap <leader>bD :bd!<CR>
 nnoremap <leader>qq :q!<CR>
 nnoremap <leader>sr <ESC>:%s//g<Left><Left>
 nnoremap <leader>fd <ESC>:diffthis<CR>
+
+" make gf open file in a split
+nnoremap <leader>gf :vertical wincmd f<CR>
+nnoremap <leader>gF :wincmd f<CR>
 
 " Window mappings
 nnoremap <leader>wm <ESC><C-w><C-o>
