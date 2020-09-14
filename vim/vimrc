@@ -429,3 +429,6 @@ nnoremap + <C-W>+
 nnoremap - <C-W>-
 nnoremap > <C-W>>
 nnoremap < <C-W><
+
+" Compiler settings
+au BufRead,BufNewFile *.t set filetype=perl | compiler perlprove
