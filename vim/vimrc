@@ -39,6 +39,7 @@ runtime macros/matchit.vim
 " Set path
 set path=.,**
 
+
 " Map leader key to comma
 let mapleader=","
 
