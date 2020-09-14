@@ -1,6 +1,8 @@
 set nocp
 set encoding=utf-8
 scriptencoding utf-8
+set noswapfile
+set timeoutlen=500
 filetype off
 
 "set the runtime path to include Vundle and initialize
@@ -29,14 +31,13 @@ Plugin 'liuchengxu/vim-which-key'
 " All plugins must be added before this
 call vundle#end()
 
-set timeoutlen=500
-nnoremap <silent> <leader> :WhichKey ','<CR>
-
 filetype plugin on
 filetype indent on
 
 runtime macros/matchit.vim
 
+" Set path
+set path=.,**
 
 " Map leader key to comma
 let mapleader=","
