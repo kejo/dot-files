@@ -283,8 +283,8 @@ nnoremap l <C-w>l
 
 
 " Source the vimrc
-nnoremap <leader>fer :so ~/.vimrc<CR>
-nnoremap <leader>fed :e ~/.vimrc <CR>
+nnoremap <leader>fer :so $MYVIMRC<CR>
+nnoremap <leader>fed :e $MYVIMRC<CR>
 
 " NERD Tree
 let NERDTreeQuitOnOpen=1
@@ -424,6 +424,7 @@ nnoremap <leader>wc <ESC>:q<CR>
 nnoremap <leader>wC <ESC>:q!<CR>
 nnoremap <leader>wn <ESC><C-W>n
 nnoremap <leader>wN <ESC>:vnew<CR>
+nnoremap <leader>wT <ESC><C-w>T
 
 nnoremap + <C-W>+
 nnoremap - <C-W>-
