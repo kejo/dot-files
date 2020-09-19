@@ -47,7 +47,9 @@ set hidden " Allow unsaved buffers
 set foldenable "enable folding
 
 " space open/closes folds
-nnoremap <space> za
+" nnoremap <space> za
+nnoremap <tab> za
+
 set foldlevelstart=99 " Dont start new buffers folded
 set foldmethod=indent
 
