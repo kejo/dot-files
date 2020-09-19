@@ -78,7 +78,7 @@ nnoremap <leader>sn :syntax sync minlines=10000<CR>
 "wrapping of lines
 set colorcolumn=100
 set textwidth=0
-set wrap
+set nowrap
 "when wrapping is used, use +++ to denote the break lines
 let &showbreak = '+++ '
 "make tab in visual mode indent code
