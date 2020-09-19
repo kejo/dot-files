@@ -40,19 +40,14 @@ runtime macros/matchit.vim
 set path=.,**
 
 
-" Map leader key to comma
-let mapleader=","
-
 set hidden " Allow unsaved buffers
 set foldenable "enable folding
-
-" space open/closes folds
-" nnoremap <space> za
-nnoremap <tab> za
 
 set foldlevelstart=99 " Dont start new buffers folded
 set foldmethod=indent
 
+set splitbelow
+set splitright
 autocmd FileType vim setlocal foldmethod=marker
 
 "{{{ tabs and spaces
@@ -72,8 +67,6 @@ set smartindent
 
 syntax enable
 syntax sync minlines=10000 " Enable syntax for large files
-" <leader>fs will redo the syntax for the file
-nnoremap <leader>sn :syntax sync minlines=10000<CR>
 
 "wrapping of lines
 set colorcolumn=100
@@ -81,9 +74,6 @@ set textwidth=0
 set nowrap
 "when wrapping is used, use +++ to denote the break lines
 let &showbreak = '+++ '
-"make tab in visual mode indent code
-vnoremap > >gv
-vnoremap < <gv
 
 "}}}
 
@@ -160,20 +150,10 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-" turn off search highlight
-nnoremap <silent> <leader><space> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 hi Search term=reverse ctermfg=16 ctermbg=239 guifg=Black guibg=Yellow
 "}}}
 
 
-"{{{ Movement
-" move vertically by visual lines when long lines get visually wrapped to two lines
-nnoremap j gj
-nnoremap k gk
-
-"highlight last inserted text
-nnoremap gV `[v`]
-"}}}
 
 " Template toolkit files filetype
 au BufNewFile,BufRead *.tt setf tt2
@@ -232,25 +212,93 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 "{{{ netrw
 " Make netrw more useful
-let g:netrw_sort_by = 'time'
-let g:netrw_sort_direction = 'reverse'
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 0
-let g:netrw_fastbrowse = 1
-let g:netrw_altv = 1
-let g:netrw_sort_by = 'name'
-let g:netrw_sort_direction = 'normal'
-let g:netrw_winsize = 25
+"let g:netrw_sort_by = 'time'
+"let g:netrw_sort_direction = 'reverse'
+"let g:netrw_banner = 0
+"let g:netrw_liststyle = 3
+"let g:netrw_browse_split = 0
+"let g:netrw_fastbrowse = 1
+"let g:netrw_altv = 1
+"let g:netrw_sort_by = 'name'
+"let g:netrw_sort_direction = 'normal'
+"let g:netrw_winsize = 25
 "}}}
-
-"{{{ abbreviations
-iab pritn print
+"{{{ abbreviations iab pritn print
 iab teh the
 iab statsu status
 iab failuer failure
 "}}}
+" NERD Tree
+let NERDTreeQuitOnOpen=1
 
+" {{{ CloseTag Pluggin settings from https://github.com/alvan/vim-closetag
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+let g:closetag_filetypes = 'html,xhtml,phtml'
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+let g:closetag_emptyTags_caseSensitive = 1
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
+" Shortcut for closing tags, default is '>'
+let g:closetag_shortcut = '>'
+" Add > at current position without closing the current tag, default is ''
+let g:closetag_close_shortcut = '<leader>>'
+" }}}
+" {{{ Easy Motion
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_keys = 'ASDGHKLQWERTYUIOPZXCVBNMFJ'
+let g:EasyMotion_do_shade = 0
+" }}}
+" {{{  Git Gutter
+highlight GitGutterAdd guifg=#009900 ctermfg=Green
+highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
+highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
+let g:gitgutter_enabled = 1
+let g:gitgutter_highlight_linenrs = 1
+" }}}
+" {{{ Vim-airline
+let g:airline#extensions#wordcount#enabled = 1
+let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline_theme = 'papercolor'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#nerdtree_status = 1
+" }}}
+"{{{ mappings
+" Map leader key to comma
+let mapleader=","
+
+" space open/closes folds
+" nnoremap <space> za
+nnoremap <tab> za
+
+" <leader>fs will redo the syntax for the file
+nnoremap <leader>sn :syntax sync minlines=10000<CR>
+
+"{{{ Movement
+" move vertically by visual lines when long lines get visually wrapped to two lines
+nnoremap j gj
+nnoremap k gk
+
+"highlight last inserted text
+nnoremap gV `[v`]
+"}}}
+"
 "{{{ mappings
 " display list of available buffers and switch to them using the buffer number
 nnoremap <F5> :buffers<CR>:buffer<Space>
@@ -261,17 +309,6 @@ nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 "Switch to the buffere that you just left (toggle)
 nnoremap <leader>bb :b#<CR>
-
-" Bufexplorer mappings
-" <leader>be
-" <leader>bt
-" <leader>bv
-" <leader>bs
-
-"}}}
-
-set splitbelow
-set splitright
 
 au BufEnter *.t nnoremap <leader>r :term prove -cv %<CR>
 au BufEnter *.pl nnoremap <leader>r :term %
@@ -288,106 +325,13 @@ nnoremap l <C-w>l
 nnoremap <leader>fer :so $MYVIMRC<CR>
 nnoremap <leader>fed :e $MYVIMRC<CR>
 
-" NERD Tree
-let NERDTreeQuitOnOpen=1
-nnoremap <leader>n :NERDTreeFind<CR>
+" Bufexplorer mappings
+" <leader>be
+" <leader>bt
+" <leader>bv
+" <leader>bs
 
-" Fugitive
-nnoremap <leader>gs :G <CR>
-nnoremap <leader>gc :G checkout <C-D>
-nnoremap <leader>gp :G push<CR>
-
-
-" autoclose parens
-inoremap {<CR> {<CR>}<ESC>O
-
-inoremap jk <ESC>
-inoremap kj <ESC>
-inoremap jj <ESC>
-
-
-" CloseTag Pluggin settings from https://github.com/alvan/vim-closetag
-" filenames like *.xml, *.html, *.xhtml, ...
-" These are the file extensions where this plugin is enabled.
-"
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-
-" filenames like *.xml, *.xhtml, ...
-" This will make the list of non-closing tags self-closing in the specified files.
-"
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-
-" filetypes like xml, html, xhtml, ...
-" These are the file types where this plugin is enabled.
-"
-let g:closetag_filetypes = 'html,xhtml,phtml'
-
-" filetypes like xml, xhtml, ...
-" This will make the list of non-closing tags self-closing in the specified files.
-"
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
-
-" integer value [0|1]
-" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
-"
-let g:closetag_emptyTags_caseSensitive = 1
-
-" dict
-" Disables auto-close if not in a "valid" region (based on filetype)
-"
-let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ }
-
-" Shortcut for closing tags, default is '>'
-"
-let g:closetag_shortcut = '>'
-
-" Add > at current position without closing the current tag, default is ''
-"
-let g:closetag_close_shortcut = '<leader>>'
-
-
-
-" Easy Motion
-map <leader>. <Plug>(easymotion-repeat)
-map <leader>jf <Plug>(easymotion-overwin-f)
-map <leader>jl <Plug>(easymotion-overwin-line)
-map <leader>jw <Plug>(easymotion-bd-W)
-
-map <leader>ss <Plug>(easymotion-sn)
-omap <leader>ss <Plug>(easymotion-tn)
-
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_use_upper = 1
-let g:EasyMotion_keys = 'ASDGHKLQWERTYUIOPZXCVBNMFJ'
-let g:EasyMotion_do_shade = 0
-"map f <Plug>(easymotion-overwin-f)
-"map t <Plug>(easymotion-bd-t)
-
-
-" Git Gutter
-highlight GitGutterAdd guifg=#009900 ctermfg=Green
-highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
-highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
-nmap ) <Plug>(GitGutterNextHunk)
-nmap ( <Plug>(GitGutterPrevHunk)
-let g:gitgutter_enabled = 1
-let g:gitgutter_highlight_linenrs = 1
-
-
-" Vim-airline
-let g:airline#extensions#wordcount#enabled = 1
-let g:airline#extensions#hunks#non_zero_only = 1
-let g:airline_theme = 'papercolor'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#nerdtree_status = 1
-" Tab and S-Tab in normal mode for navigating buffers
-" nnoremap <silent> <tab> :bn<CR>
-" nnoremap <silent> <S-tab> :bp<CR>
-
+"}}}
 " Toggles
 nnoremap <leader>tn :set number!<CR>
 nnoremap <leader>tr :set relativenumber!<CR>
@@ -437,6 +381,40 @@ nnoremap + 2<C-W>+
 nnoremap - 2<C-W>-
 nnoremap > 2<C-W>>
 nnoremap < 2<C-W><
+
+" turn off search highlight
+nnoremap <silent> <leader><space> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+"
+"make tab in visual mode indent code
+vnoremap > >gv
+vnoremap < <gv
+"
+nnoremap <leader>n :NERDTreeFind<CR>
+
+" Fugitive
+nnoremap <leader>gs :G <CR>
+nnoremap <leader>gc :G checkout <C-D>
+nnoremap <leader>gp :G push<CR>
+
+
+" autoclose parens
+inoremap {<CR> {<CR>}<ESC>O
+
+inoremap jk <ESC>
+inoremap kj <ESC>
+inoremap jj <ESC>
+
+" Easy Motion
+map <leader>. <Plug>(easymotion-repeat)
+map <leader>jf <Plug>(easymotion-overwin-f)
+map <leader>jl <Plug>(easymotion-overwin-line)
+map <leader>jw <Plug>(easymotion-bd-W)
+
+map <leader>ss <Plug>(easymotion-sn)
+omap <leader>ss <Plug>(easymotion-tn)
+nmap ) <Plug>(GitGutterNextHunk)
+nmap ( <Plug>(GitGutterPrevHunk)
+"}}}
 
 " Compiler settings
 au BufRead,BufNewFile *.t set filetype=perl | compiler perlprove
