@@ -383,8 +383,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#nerdtree_status = 1
 " Tab and S-Tab in normal mode for navigating buffers
-nnoremap <silent> <tab> :bn<CR>
-nnoremap <silent> <S-tab> :bp<CR>
+" nnoremap <silent> <tab> :bn<CR>
+" nnoremap <silent> <S-tab> :bp<CR>
 
 " Toggles
 nnoremap <leader>tn :set number!<CR>
