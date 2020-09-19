@@ -100,7 +100,7 @@ color PaperColor
 set relativenumber
 set number
 set ruler
-set scrolloff=1
+" set scrolloff=1
 set sidescrolloff=5
 set display+=lastline
 set highlight+=N:DiffText " Make current line number stand out a little
