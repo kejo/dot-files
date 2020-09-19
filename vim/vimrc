@@ -401,7 +401,12 @@ nnoremap <leader>bd <ESC>:bd<CR>
 nnoremap <leader>bD :bd!<CR>
 nnoremap <leader>qq :q!<CR>
 nnoremap <leader>sr <ESC>:%s//g<Left><Left>
-nnoremap <leader>fd <ESC>:diffthis<CR>
+nnoremap <leader>fd <ESC>:windo diffthis<CR>
+nnoremap <leader>fD <ESC>:windo diffoff<CR>
+"vimdiff current vs git head (fugitive extension)
+nnoremap <Leader>gd :Gdiff<cr>
+"switch back to current file and closes fugitive buffer
+nnoremap <Leader>gD <c-w>h<c-w>c
 
 " make gf open file in a split
 nnoremap <leader>gf :vertical wincmd f<CR>
@@ -428,10 +433,10 @@ nnoremap <leader>wn <ESC><C-W>n
 nnoremap <leader>wN <ESC>:vnew<CR>
 nnoremap <leader>wT <ESC><C-w>T
 
-nnoremap + <C-W>+
-nnoremap - <C-W>-
-nnoremap > <C-W>>
-nnoremap < <C-W><
+nnoremap + 2<C-W>+
+nnoremap - 2<C-W>-
+nnoremap > 2<C-W>>
+nnoremap < 2<C-W><
 
 " Compiler settings
 au BufRead,BufNewFile *.t set filetype=perl | compiler perlprove
