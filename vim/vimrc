@@ -1,10 +1,12 @@
+"{{{ Settings before plugins
 set nocp
 set encoding=utf-8
 scriptencoding utf-8
 set noswapfile
 set timeoutlen=500
 filetype off
-
+" }}}
+" {{{ Vundle plugins
 "set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -30,28 +32,22 @@ Plugin 'liuchengxu/vim-which-key'
 
 " All plugins must be added before this
 call vundle#end()
-
+" }}}
+" {{{ Essential settings
 filetype plugin on
 filetype indent on
 
 runtime macros/matchit.vim
 
-" Set path
+" Set path , ** means all recursive subdirectories of cwd
 set path=.,**
-
-
-set hidden " Allow unsaved buffers
+set hidden " Allow unsaved buffers to be hidden
 set foldenable "enable folding
-
 set foldlevelstart=99 " Dont start new buffers folded
-set foldmethod=indent
-
+set foldmethod=syntax
 set splitbelow
 set splitright
-autocmd FileType vim setlocal foldmethod=marker
-
 "{{{ tabs and spaces
-
 set bs=indent,eol,start " Allow backspacing over everything in insert mode
 set tabstop=4 " Tab indentation levels every four columns
 set softtabstop=4
@@ -59,11 +55,16 @@ set expandtab "Convert all tabs that are typed to spaces
 set shiftround "Always indent/outdent to nearest tabstop
 set shiftwidth=4 "indent/outdent by four columns
 set smarttab "Use shiftwidths at left margin, tabstops everywhere else
+set relativenumber
+set number
+set ruler
+" }}}
 
 set nrformats-=octal
 
 set autoindent
 set smartindent
+set sidescrolloff=5
 
 syntax enable
 syntax sync minlines=10000 " Enable syntax for large files
@@ -75,8 +76,6 @@ set nowrap
 "when wrapping is used, use +++ to denote the break lines
 let &showbreak = '+++ '
 
-"}}}
-
 "{{{ colors and display
 " enable 256 colors
 set t_Co=256
@@ -87,32 +86,22 @@ if (has("termguicolors"))
 endif
 
 color PaperColor
-set relativenumber
-set number
-set ruler
-" set scrolloff=1
-set sidescrolloff=5
+
 set display+=lastline
 set highlight+=N:DiffText " Make current line number stand out a little
 set highlight+=c:LineNr " Blend vertical separators with line numbers
-
-" Make the completion popup look menu-is on a Mac
-highlight Pmenu ctermbg=white ctermfg=black
-highlight PmenuSel ctermbg=blue ctermfg=white cterm=bold
-highlight PmenuSbar ctermbg=grey ctermfg=grey
-highlight PmenuThumb ctermbg=blue ctermfg=blue
-highlight Folded ctermfg=cyan ctermbg=black
+hi Folded term=reverse ctermfg=14 ctermbg=242 guifg=Cyan guibg=#1c1c1c
 
 set showcmd " show command in bottom bar
-
-au BufEnter * setlocal cursorline " Enbale cursor line on active window
-au BufLeave * setlocal nocursorline "Suppress cursorline on inactive window
+"}}}
+" }}}
+" {{{ other settings
 set wildchar=<Tab>
 set wildcharm=<C-Z> "from https://vim.fandom.com/wiki/Easier_buffer_switching
 
 set fillchars=vert:┃
 set wildmenu " visual autocomplete for command menu
-set wildmode=full " show list of completions
+set wildmode=list:longest:full " show list of completions
 " set wildmode=list:longest,full " show list of completions, and complete as
                  " much as possible, then iterate full completions
 
@@ -124,7 +113,6 @@ set updatetime=100 "idlenes is 100 milliseconds (Helps with gitgutter)
 set autoread "Automatically load file if changed outside of vi
 set autowrite "save file automatically
 set showmatch "highlight matching brackets
-
 if &history < 1000
     set history=1000
 endif
@@ -138,31 +126,17 @@ set list
 set sessionoptions-=options
 set viewoptions-=options
 
-"}}}
-
-
 if v:version > 703 || v:version == 703 && has("patch541")
     set formatoptions+=j " Delete comment character when joining commented lines
 endif
-
+"}}}
 " {{{ Searching
 set incsearch 
 set hlsearch
 set ignorecase
 set smartcase
-hi Search term=reverse ctermfg=16 ctermbg=239 guifg=Black guibg=Yellow
+"hi Search term=reverse ctermfg=16 ctermbg=239 guifg=Black guibg=Yellow
 "}}}
-
-
-
-" Template toolkit files filetype
-au BufNewFile,BufRead *.tt setf tt2
-au BufNewFile,BufRead *.tt2 setf tt2
-
-" Autosys jil files
-au BufNewFile,BufRead *.jil setf autosys
-
-
 "{{{ Status Line
 "set statusline=
 "set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
@@ -194,8 +168,6 @@ au BufNewFile,BufRead *.jil setf autosys
 
 set laststatus=2 " Always show the status line regardless of number of windows (splits)
 "}}}
-"
-"
 "{{{ Ultisnips settings
 let g:UltiSnipsEditSplit="context"
 let g:UltiSnipsListSnippets="<c-l>"
@@ -203,13 +175,11 @@ let g:UltiSnipsSnippetsDir="~/.vim/Ultisnips"
 let g:UltiSnipsExpandTrigger="<tab>"
 " Default valuel of ultisnip <c-k> interfers with build-in completion
 " function i_CTRL-X_CTRL-K. Below is a workaround.
-"}}}
-
 " better key bindings for UlstisnipsExpand Trigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
+"}}}
 "{{{ netrw
 " Make netrw more useful
 "let g:netrw_sort_by = 'time'
@@ -228,9 +198,9 @@ iab teh the
 iab statsu status
 iab failuer failure
 "}}}
-" NERD Tree
+" {{{ NERD Tree
 let NERDTreeQuitOnOpen=1
-
+" }}}
 " {{{ CloseTag Pluggin settings from https://github.com/alvan/vim-closetag
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
@@ -310,16 +280,11 @@ nnoremap <leader>bp :bp<CR>
 "Switch to the buffere that you just left (toggle)
 nnoremap <leader>bb :b#<CR>
 
-au BufEnter *.t nnoremap <leader>r :term prove -cv %<CR>
-au BufEnter *.pl nnoremap <leader>r :term %
-au BufEnter *.sh nnoremap <leader>r :term sh %<CR>
-
-" Alh-h/j/k/l -> switch window
+" Alt-h/j/k/l -> switch window
 nnoremap h <C-w>h
 nnoremap j <C-w>j
 nnoremap k <C-w>k
 nnoremap l <C-w>l
-
 
 " Source the vimrc
 nnoremap <leader>fer :so $MYVIMRC<CR>
@@ -332,13 +297,14 @@ nnoremap <leader>fed :e $MYVIMRC<CR>
 " <leader>bs
 
 "}}}
-" Toggles
+" {{{ Toggles
 nnoremap <leader>tn :set number!<CR>
 nnoremap <leader>tr :set relativenumber!<CR>
 nnoremap <leader>tp :set paste!<CR>
 nnoremap <leader>tw :set wrap!<CR>
 nnoremap <leader>tc :set ignorecase!<CR>
-
+" }}}
+" {{{ File and Buffer mappings
 nnoremap <leader>fs <ESC>:w<CR>
 nnoremap <leader>fsq <ESC>:wq<CR>
 nnoremap <leader>bd <ESC>:bd<CR>
@@ -347,6 +313,7 @@ nnoremap <leader>qq :q!<CR>
 nnoremap <leader>sr <ESC>:%s//g<Left><Left>
 nnoremap <leader>fd <ESC>:windo diffthis<CR>
 nnoremap <leader>fD <ESC>:windo diffoff<CR>
+" }}}
 "vimdiff current vs git head (fugitive extension)
 nnoremap <Leader>gd :Gdiff<cr>
 "switch back to current file and closes fugitive buffer
@@ -356,7 +323,7 @@ nnoremap <Leader>gD <c-w>h<c-w>c
 nnoremap <leader>gf :vertical wincmd f<CR>
 nnoremap <leader>gF :wincmd f<CR>
 
-" Window mappings
+" {{{ Window mappings
 nnoremap <leader>wm <ESC><C-w><C-o>
 nnoremap <leader>wo <ESC><C-w><C-o>
 nnoremap <leader>wl <ESC><C-w>l
@@ -376,12 +343,13 @@ nnoremap <leader>wC <ESC>:q!<CR>
 nnoremap <leader>wn <ESC><C-W>n
 nnoremap <leader>wN <ESC>:vnew<CR>
 nnoremap <leader>wT <ESC><C-w>T
-
+" }}}
+" {{{ Resize window
 nnoremap + 2<C-W>+
 nnoremap - 2<C-W>-
 nnoremap > 2<C-W>>
 nnoremap < 2<C-W><
-
+" }}}
 " turn off search highlight
 nnoremap <silent> <leader><space> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 "
@@ -395,7 +363,6 @@ nnoremap <leader>n :NERDTreeFind<CR>
 nnoremap <leader>gs :G <CR>
 nnoremap <leader>gc :G checkout <C-D>
 nnoremap <leader>gp :G push<CR>
-
 
 " autoclose parens
 inoremap {<CR> {<CR>}<ESC>O
@@ -415,6 +382,23 @@ omap <leader>ss <Plug>(easymotion-tn)
 nmap ) <Plug>(GitGutterNextHunk)
 nmap ( <Plug>(GitGutterPrevHunk)
 "}}}
-
+" {{{ Auto commands
 " Compiler settings
 au BufRead,BufNewFile *.t set filetype=perl | compiler perlprove
+autocmd FileType vim setlocal foldmethod=marker
+au BufEnter * setlocal cursorline " Enbale cursor line on active window
+au BufLeave * setlocal nocursorline "Suppress cursorline on inactive window
+" Template toolkit files filetype
+au BufNewFile,BufRead *.tt setf tt2
+au BufNewFile,BufRead *.tt2 setf tt2
+" Autosys jil files
+au BufNewFile,BufRead *.jil setf autosys
+au BufEnter *.t nnoremap <leader>r :term prove -cv %<CR>
+au BufEnter *.pl nnoremap <leader>r :term %
+au BufEnter *.sh nnoremap <leader>r :term sh %<CR>
+" }}}
+" Make the completion popup look menu-is on a Mac
+"highlight Pmenu ctermbg=white ctermfg=black guibg=white guifg=black
+"highlight PmenuSel ctermbg=blue ctermfg=white cterm=bold guibg=blue guifg=white
+"highlight PmenuSbar ctermbg=grey ctermfg=grey guibg=grey guifg=grey
+"highlight PmenuThumb ctermbg=blue ctermfg=blue guibg=blue guifg=blue
