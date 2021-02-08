@@ -29,6 +29,9 @@ Plugin 'preservim/nerdcommenter'
 Plugin 'jceb/vim-orgmode'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'liuchengxu/vim-which-key'
+Plugin 'vim-perl/vim-perl'
+
+let perl_sub_signatures = 1
 
 " All plugins must be added before this
 call vundle#end()
